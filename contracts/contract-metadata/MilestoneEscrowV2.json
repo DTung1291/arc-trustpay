@@ -1,0 +1,1332 @@
+{
+  "contractAddress": "0xbddde8b247f93748d8ef076848f5fac3238810db",
+  "network": "ARC-TESTNET",
+  "deployerWalletId": "3c2464b2-8369-52e2-a782-800bbeca5396",
+  "contract_code_path": "/home/user/app/contracts/MilestoneEscrowV2.sol",
+  "contract_compiled_code_path": "/home/user/app/contracts/out/MilestoneEscrowV2.sol/MilestoneEscrowV2.json",
+  "contract_network_and_links": {
+    "Arc Testnet": "https://explorer.testnet.arc.io/address/0xbddde8b247f93748d8ef076848f5fac3238810db"
+  },
+  "contract_deployments": [
+    {
+      "chain": "Arc Testnet",
+      "address": "0xbddde8b247f93748d8ef076848f5fac3238810db",
+      "explorerUrl": "https://explorer.testnet.arc.io/address/0xbddde8b247f93748d8ef076848f5fac3238810db",
+      "txHash": "0xaf891779c902e057438c84a388598fd15e1ae9b442d61a08247ccf66052ef735",
+      "deployedAt": "2026-10-13T09:09:01.919Z"
+    }
+  ],
+  "abi": [
+    {
+      "type": "constructor",
+      "inputs": [
+        {
+          "name": "acceptedToken",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "ACCEPTED_TOKEN",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "DEFAULT_REVIEW_WINDOW",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "MAX_MILESTONES",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "approveMilestone",
+      "inputs": [
+        {
+          "name": "agreementId",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "milestoneIndex",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "cancelAgreement",
+      "inputs": [
+        {
+          "name": "agreementId",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "claimAfterReviewExpiry",
+      "inputs": [
+        {
+          "name": "agreementId",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "milestoneIndex",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "claimMilestone",
+      "inputs": [
+        {
+          "name": "agreementId",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "milestoneIndex",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "clientAbortActive",
+      "inputs": [
+        {
+          "name": "agreementId",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "createAgreement",
+      "inputs": [
+        {
+          "name": "freelancer",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "resolver",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "internalType": "string"
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "internalType": "string"
+        },
+        {
+          "name": "milestones",
+          "type": "tuple[]",
+          "internalType": "struct MilestoneEscrowV2.MilestoneInput[]",
+          "components": [
+            {
+              "name": "title",
+              "type": "string",
+              "internalType": "string"
+            },
+            {
+              "name": "description",
+              "type": "string",
+              "internalType": "string"
+            },
+            {
+              "name": "amount",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "dueDate",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "acceptanceCriteria",
+              "type": "string",
+              "internalType": "string"
+            }
+          ]
+        },
+        {
+          "name": "token",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "autoRelease",
+          "type": "bool",
+          "internalType": "bool"
+        },
+        {
+          "name": "reviewWindowSeconds",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "agreementId",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "disputeMilestone",
+      "inputs": [
+        {
+          "name": "agreementId",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "milestoneIndex",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "reason",
+          "type": "string",
+          "internalType": "string"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "fundAgreement",
+      "inputs": [
+        {
+          "name": "agreementId",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "getAgreement",
+      "inputs": [
+        {
+          "name": "id",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "agreement",
+          "type": "tuple",
+          "internalType": "struct MilestoneEscrowV2.Agreement",
+          "components": [
+            {
+              "name": "agreementId",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "client",
+              "type": "address",
+              "internalType": "address"
+            },
+            {
+              "name": "freelancer",
+              "type": "address",
+              "internalType": "address"
+            },
+            {
+              "name": "token",
+              "type": "address",
+              "internalType": "address"
+            },
+            {
+              "name": "totalAmount",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "title",
+              "type": "string",
+              "internalType": "string"
+            },
+            {
+              "name": "description",
+              "type": "string",
+              "internalType": "string"
+            },
+            {
+              "name": "resolver",
+              "type": "address",
+              "internalType": "address"
+            },
+            {
+              "name": "createdAt",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "fundedAt",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "state",
+              "type": "uint8",
+              "internalType": "enum MilestoneEscrowV2.AgreementState"
+            },
+            {
+              "name": "totalPaid",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "autoRelease",
+              "type": "bool",
+              "internalType": "bool"
+            },
+            {
+              "name": "reviewWindowSeconds",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "autoReleaseEnabled",
+              "type": "bool",
+              "internalType": "bool"
+            },
+            {
+              "name": "milestones",
+              "type": "tuple[]",
+              "internalType": "struct MilestoneEscrowV2.Milestone[]",
+              "components": [
+                {
+                  "name": "title",
+                  "type": "string",
+                  "internalType": "string"
+                },
+                {
+                  "name": "description",
+                  "type": "string",
+                  "internalType": "string"
+                },
+                {
+                  "name": "amount",
+                  "type": "uint256",
+                  "internalType": "uint256"
+                },
+                {
+                  "name": "deliverableRef",
+                  "type": "string",
+                  "internalType": "string"
+                },
+                {
+                  "name": "dueDate",
+                  "type": "uint256",
+                  "internalType": "uint256"
+                },
+                {
+                  "name": "reviewWindowEnd",
+                  "type": "uint256",
+                  "internalType": "uint256"
+                },
+                {
+                  "name": "submittedAt",
+                  "type": "uint256",
+                  "internalType": "uint256"
+                },
+                {
+                  "name": "state",
+                  "type": "uint8",
+                  "internalType": "enum MilestoneEscrowV2.MilestoneState"
+                },
+                {
+                  "name": "disputeReason",
+                  "type": "string",
+                  "internalType": "string"
+                },
+                {
+                  "name": "resolutionNote",
+                  "type": "string",
+                  "internalType": "string"
+                },
+                {
+                  "name": "acceptanceCriteria",
+                  "type": "string",
+                  "internalType": "string"
+                },
+                {
+                  "name": "evidenceHash",
+                  "type": "bytes32",
+                  "internalType": "bytes32"
+                },
+                {
+                  "name": "revisionCount",
+                  "type": "uint256",
+                  "internalType": "uint256"
+                },
+                {
+                  "name": "lastActivityAt",
+                  "type": "uint256",
+                  "internalType": "uint256"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "getAgreementsByClient",
+      "inputs": [
+        {
+          "name": "client",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "agreementIds",
+          "type": "uint256[]",
+          "internalType": "uint256[]"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "getAgreementsByFreelancer",
+      "inputs": [
+        {
+          "name": "freelancer",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "agreementIds",
+          "type": "uint256[]",
+          "internalType": "uint256[]"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "getMilestone",
+      "inputs": [
+        {
+          "name": "id",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "index",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "milestone",
+          "type": "tuple",
+          "internalType": "struct MilestoneEscrowV2.Milestone",
+          "components": [
+            {
+              "name": "title",
+              "type": "string",
+              "internalType": "string"
+            },
+            {
+              "name": "description",
+              "type": "string",
+              "internalType": "string"
+            },
+            {
+              "name": "amount",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "deliverableRef",
+              "type": "string",
+              "internalType": "string"
+            },
+            {
+              "name": "dueDate",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "reviewWindowEnd",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "submittedAt",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "state",
+              "type": "uint8",
+              "internalType": "enum MilestoneEscrowV2.MilestoneState"
+            },
+            {
+              "name": "disputeReason",
+              "type": "string",
+              "internalType": "string"
+            },
+            {
+              "name": "resolutionNote",
+              "type": "string",
+              "internalType": "string"
+            },
+            {
+              "name": "acceptanceCriteria",
+              "type": "string",
+              "internalType": "string"
+            },
+            {
+              "name": "evidenceHash",
+              "type": "bytes32",
+              "internalType": "bytes32"
+            },
+            {
+              "name": "revisionCount",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "lastActivityAt",
+              "type": "uint256",
+              "internalType": "uint256"
+            }
+          ]
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "getMilestoneCount",
+      "inputs": [
+        {
+          "name": "id",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "count",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "getSubmissionHistory",
+      "inputs": [
+        {
+          "name": "agreementId",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "milestoneIndex",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "history",
+          "type": "tuple[]",
+          "internalType": "struct MilestoneEscrowV2.SubmissionRecord[]",
+          "components": [
+            {
+              "name": "deliverableRef",
+              "type": "string",
+              "internalType": "string"
+            },
+            {
+              "name": "evidenceHash",
+              "type": "bytes32",
+              "internalType": "bytes32"
+            },
+            {
+              "name": "submittedAt",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "revisionNumber",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "clientComment",
+              "type": "string",
+              "internalType": "string"
+            }
+          ]
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "pendingWithdrawals",
+      "inputs": [
+        {
+          "name": "",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "requestRevision",
+      "inputs": [
+        {
+          "name": "agreementId",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "milestoneIndex",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "comment",
+          "type": "string",
+          "internalType": "string"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "resolveDispute",
+      "inputs": [
+        {
+          "name": "agreementId",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "milestoneIndex",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "awardToFreelancer",
+          "type": "bool",
+          "internalType": "bool"
+        },
+        {
+          "name": "freelancerAmount",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "note",
+          "type": "string",
+          "internalType": "string"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "submitMilestone",
+      "inputs": [
+        {
+          "name": "agreementId",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "milestoneIndex",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "deliverableRef",
+          "type": "string",
+          "internalType": "string"
+        },
+        {
+          "name": "evidenceHash",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "withdraw",
+      "inputs": [
+        {
+          "name": "token",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "event",
+      "name": "AgreementCancelled",
+      "inputs": [
+        {
+          "name": "agreementId",
+          "type": "uint256",
+          "indexed": true,
+          "internalType": "uint256"
+        },
+        {
+          "name": "client",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "AgreementCompleted",
+      "inputs": [
+        {
+          "name": "agreementId",
+          "type": "uint256",
+          "indexed": true,
+          "internalType": "uint256"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "AgreementCreated",
+      "inputs": [
+        {
+          "name": "agreementId",
+          "type": "uint256",
+          "indexed": true,
+          "internalType": "uint256"
+        },
+        {
+          "name": "client",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        },
+        {
+          "name": "freelancer",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        },
+        {
+          "name": "token",
+          "type": "address",
+          "indexed": false,
+          "internalType": "address"
+        },
+        {
+          "name": "totalAmount",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "indexed": false,
+          "internalType": "string"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "AgreementFunded",
+      "inputs": [
+        {
+          "name": "agreementId",
+          "type": "uint256",
+          "indexed": true,
+          "internalType": "uint256"
+        },
+        {
+          "name": "client",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        },
+        {
+          "name": "totalAmount",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        },
+        {
+          "name": "fundedAt",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "DisputeResolved",
+      "inputs": [
+        {
+          "name": "agreementId",
+          "type": "uint256",
+          "indexed": true,
+          "internalType": "uint256"
+        },
+        {
+          "name": "milestoneIndex",
+          "type": "uint256",
+          "indexed": true,
+          "internalType": "uint256"
+        },
+        {
+          "name": "resolver",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        },
+        {
+          "name": "awardedToFreelancer",
+          "type": "bool",
+          "indexed": false,
+          "internalType": "bool"
+        },
+        {
+          "name": "freelancerAmount",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        },
+        {
+          "name": "clientRefund",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        },
+        {
+          "name": "note",
+          "type": "string",
+          "indexed": false,
+          "internalType": "string"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "MilestoneApproved",
+      "inputs": [
+        {
+          "name": "agreementId",
+          "type": "uint256",
+          "indexed": true,
+          "internalType": "uint256"
+        },
+        {
+          "name": "milestoneIndex",
+          "type": "uint256",
+          "indexed": true,
+          "internalType": "uint256"
+        },
+        {
+          "name": "client",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        },
+        {
+          "name": "approvedAt",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "MilestoneClaimed",
+      "inputs": [
+        {
+          "name": "agreementId",
+          "type": "uint256",
+          "indexed": true,
+          "internalType": "uint256"
+        },
+        {
+          "name": "milestoneIndex",
+          "type": "uint256",
+          "indexed": true,
+          "internalType": "uint256"
+        },
+        {
+          "name": "freelancer",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        },
+        {
+          "name": "amount",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        },
+        {
+          "name": "claimedAt",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "MilestoneDisputed",
+      "inputs": [
+        {
+          "name": "agreementId",
+          "type": "uint256",
+          "indexed": true,
+          "internalType": "uint256"
+        },
+        {
+          "name": "milestoneIndex",
+          "type": "uint256",
+          "indexed": true,
+          "internalType": "uint256"
+        },
+        {
+          "name": "client",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        },
+        {
+          "name": "reason",
+          "type": "string",
+          "indexed": false,
+          "internalType": "string"
+        },
+        {
+          "name": "disputedAt",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "MilestoneResubmitted",
+      "inputs": [
+        {
+          "name": "agreementId",
+          "type": "uint256",
+          "indexed": true,
+          "internalType": "uint256"
+        },
+        {
+          "name": "milestoneIndex",
+          "type": "uint256",
+          "indexed": true,
+          "internalType": "uint256"
+        },
+        {
+          "name": "freelancer",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        },
+        {
+          "name": "deliverableRef",
+          "type": "string",
+          "indexed": false,
+          "internalType": "string"
+        },
+        {
+          "name": "evidenceHash",
+          "type": "bytes32",
+          "indexed": false,
+          "internalType": "bytes32"
+        },
+        {
+          "name": "revisionCount",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        },
+        {
+          "name": "resubmittedAt",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "MilestoneSubmitted",
+      "inputs": [
+        {
+          "name": "agreementId",
+          "type": "uint256",
+          "indexed": true,
+          "internalType": "uint256"
+        },
+        {
+          "name": "milestoneIndex",
+          "type": "uint256",
+          "indexed": true,
+          "internalType": "uint256"
+        },
+        {
+          "name": "freelancer",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        },
+        {
+          "name": "deliverableRef",
+          "type": "string",
+          "indexed": false,
+          "internalType": "string"
+        },
+        {
+          "name": "evidenceHash",
+          "type": "bytes32",
+          "indexed": false,
+          "internalType": "bytes32"
+        },
+        {
+          "name": "submittedAt",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "RevisionRequested",
+      "inputs": [
+        {
+          "name": "agreementId",
+          "type": "uint256",
+          "indexed": true,
+          "internalType": "uint256"
+        },
+        {
+          "name": "milestoneIndex",
+          "type": "uint256",
+          "indexed": true,
+          "internalType": "uint256"
+        },
+        {
+          "name": "client",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        },
+        {
+          "name": "comment",
+          "type": "string",
+          "indexed": false,
+          "internalType": "string"
+        },
+        {
+          "name": "revisionCount",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        },
+        {
+          "name": "requestedAt",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "Withdrawn",
+      "inputs": [
+        {
+          "name": "recipient",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        },
+        {
+          "name": "token",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        },
+        {
+          "name": "amount",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "error",
+      "name": "AggregatePayout",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "AgreementNotActive",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "AgreementNotPending",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "AlreadyClaimed",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "AutoReleaseDisabled",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "InvalidAddress",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "InvalidAmount",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "InvalidMilestoneCount",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "InvalidReviewWindow",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "InvalidToken",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "MilestoneIndexOutOfBounds",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "MilestoneNotApproved",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "MilestoneNotDisputed",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "MilestoneNotPending",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "MilestoneNotPendingOrRevision",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "MilestoneNotSubmitted",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "MilestonesAlreadyStarted",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "NotClient",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "NotFreelancer",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "NotResolver",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "NothingToWithdraw",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "ReentrancyGuardReentrantCall",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "ReviewWindowNotElapsed",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "ReviewWindowNotSet",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "RevisionNotAllowed",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "SafeERC20FailedOperation",
+      "inputs": [
+        {
+          "name": "token",
+          "type": "address",
+          "internalType": "address"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "TooEarlyToAbort",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "TransferAmountMismatch",
+      "inputs": []
+    }
+  ]
+}

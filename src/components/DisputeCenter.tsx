@@ -4,8 +4,8 @@ import { toast } from 'sonner'
 import { motion } from 'framer-motion'
 import { Shield, AlertTriangle, CheckCircle2, Scale } from 'lucide-react'
 import { useAgreementsByClient, useAgreementsByFreelancer, useMultipleAgreements } from '@/hooks/useEscrow'
-import { formatUsdcDisplay, formatAddress, formatDatetime, parseOnchainError } from '@/utils/format'
-import { MILESTONE_ESCROW_ADDRESS, MILESTONE_ESCROW_ABI, ARC_TESTNET_ID, MilestoneState, AgreementState } from '@/contract'
+import { formatUsdcDisplay, formatAddress, parseOnchainError } from '@/utils/format'
+import { MILESTONE_ESCROW_ADDRESS, MILESTONE_ESCROW_ABI, ARC_TESTNET_ID, MilestoneState } from '@/contract'
 import { TxButton } from './ui/TxButton'
 import { GlassCard } from './ui/GlassCard'
 import { EmptyState } from './ui/EmptyState'
@@ -72,7 +72,7 @@ export function DisputeCenter({ onViewAgreement }: Props) {
     }, {
       onSuccess: () => {
         toast.success('Dispute resolved.')
-        refetch()
+        void refetch()
       },
       onError: (e) => toast.error(parseOnchainError(e)),
     })

@@ -39,7 +39,6 @@ export function CreateAgreement({ onBack, onCreated }: Props) {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [milestones, setMilestones] = useState<MilestoneInput[]>([{ ...DEFAULT_MILESTONE }])
-  const [createdId, setCreatedId] = useState<bigint | null>(null)
   const [fundingStep, setFundingStep] = useState<'idle' | 'approving' | 'funding' | 'done'>('idle')
 
   const totalAmount = milestones.reduce((sum, m) => {

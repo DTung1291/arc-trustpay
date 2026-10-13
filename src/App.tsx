@@ -9,13 +9,15 @@ import {
 import { LandingPage } from './components/LandingPage'
 import { Dashboard } from './components/Dashboard'
 import { CreateAgreement } from './components/CreateAgreement'
+import { CreateAgreementV2 } from './components/CreateAgreementV2'
 import { AgreementDetail } from './components/AgreementDetail'
+import { AgreementDetailV2 } from './components/AgreementDetailV2'
 import { FreelancerWorkspace } from './components/FreelancerWorkspace'
 import { DisputeCenter } from './components/DisputeCenter'
 import { TxExplorer } from './components/TxExplorer'
 import { formatAddress } from './utils/format'
 import { NetworkGuard } from './components/ui/NetworkGuard'
-import { ARC_TESTNET_ID, MILESTONE_ESCROW_ADDRESS } from './contract'
+import { MILESTONE_ESCROW_ADDRESS } from './contract'
 import { useUsdcBalance } from './hooks/useEscrow'
 import { formatUsdcDisplay } from './utils/format'
 
@@ -23,14 +25,16 @@ type Screen =
   | { id: 'landing' }
   | { id: 'dashboard' }
   | { id: 'create' }
-  | { id: 'agreement'; agreementId: bigint }
+  | { id: 'createV2' }
+  | { id: 'agreement'; agreementId: bigint; version?: 'v1' | 'v2' }
   | { id: 'workspace' }
   | { id: 'disputes' }
   | { id: 'explorer' }
 
 const NAV_ITEMS = [
   { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
-  { id: 'create', label: 'New Agreement', icon: Plus },
+  { id: 'createV2', label: 'New (V2)', icon: Plus },
+  { id: 'create', label: 'New (V1)', icon: Plus },
   { id: 'workspace', label: 'Workspace', icon: Briefcase },
   { id: 'disputes', label: 'Disputes', icon: Scale },
   { id: 'explorer', label: 'Explorer', icon: Activity },
@@ -47,7 +51,7 @@ export default function App() {
     setMobileMenuOpen(false)
   }
 
-  const currentNavId = screen.id === 'agreement' ? 'dashboard' : screen.id === 'create' ? 'create' : screen.id
+  const currentNavId = screen.id === 'agreement' ? 'dashboard' : screen.id
 
   // Landing page (pre-connect or explicit)
   if (!isConnected || screen.id === 'landing') {
@@ -157,7 +161,7 @@ export default function App() {
       <main>
         <AnimatePresence mode="wait">
           <motion.div
-            key={screen.id + (screen.id === 'agreement' ? (screen as any).agreementId?.toString() : '')}
+            key={screen.id + (screen.id === 'agreement' ? (screen).agreementId?.toString() : '')}
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
@@ -173,11 +177,23 @@ export default function App() {
               {screen.id === 'create' && (
                 <CreateAgreement
                   onBack={() => navigate('dashboard')}
-                  onCreated={(id) => setScreen({ id: 'agreement', agreementId: id })}
+                  onCreated={(id) => setScreen({ id: 'agreement', agreementId: id, version: 'v1' })}
                 />
               )}
-              {screen.id === 'agreement' && (
+              {screen.id === 'createV2' && (
+                <CreateAgreementV2
+                  onBack={() => navigate('dashboard')}
+                  onCreated={(id) => setScreen({ id: 'agreement', agreementId: id, version: 'v2' })}
+                />
+              )}
+              {screen.id === 'agreement' && (screen).version !== 'v2' && (
                 <AgreementDetail
+                  agreementId={(screen).agreementId}
+                  onBack={() => navigate('dashboard')}
+                />
+              )}
+              {screen.id === 'agreement' && (screen).version === 'v2' && (
+                <AgreementDetailV2
                   agreementId={(screen).agreementId}
                   onBack={() => navigate('dashboard')}
                 />
@@ -205,7 +221,10 @@ export default function App() {
           </div>
           <div className="flex items-center gap-4">
             <a href={`https://explorer.testnet.arc.io/address/${MILESTONE_ESCROW_ADDRESS}`} target="_blank" rel="noopener noreferrer" className="hover:text-slate-400 transition-colors flex items-center gap-1">
-              Contract <ExternalLink className="w-3 h-3" />
+              V1 <ExternalLink className="w-3 h-3" />
+            </a>
+            <a href="https://explorer.testnet.arc.io/address/0xbddde8b247f93748d8ef076848f5fac3238810db" target="_blank" rel="noopener noreferrer" className="hover:text-slate-400 transition-colors flex items-center gap-1">
+              V2 <ExternalLink className="w-3 h-3" />
             </a>
             <span>Not audited for mainnet production use.</span>
           </div>

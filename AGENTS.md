@@ -1,5 +1,14 @@
 # ARC TRUSTPAY
 
+## Deployed Contracts
+
+| Version | Address | Network |
+|---|---|---|
+| MilestoneEscrow (V1) | 0x7bc763a8f42426030e67f36f7b334d2cc9e0dd76 | Arc Testnet |
+| MilestoneEscrowV2 | 0xbddde8b247f93748d8ef076848f5fac3238810db | Arc Testnet |
+
+
+
 > Built with Arc Studio — milestone-based USDC escrow for freelancers on Arc Testnet.
 
 ## What This App Does
@@ -12,9 +21,12 @@ ARC TRUSTPAY is a decentralized freelance payment platform where clients lock te
 
 | Contract | Network | Address | Explorer |
 |---|---|---|---|
-| MilestoneEscrow | Arc Testnet | 0x7bc763a8f42426030e67f36f7b334d2cc9e0dd76 | https://explorer.testnet.arc.io/address/0x7bc763a8f42426030e67f36f7b334d2cc9e0dd76 |
+| MilestoneEscrow (V1) | Arc Testnet | 0x7bc763a8f42426030e67f36f7b334d2cc9e0dd76 | https://explorer.testnet.arc.io/address/0x7bc763a8f42426030e67f36f7b334d2cc9e0dd76 |
+| MilestoneEscrowV2 | Arc Testnet | 0xbddde8b247f93748d8ef076848f5fac3238810db | https://explorer.testnet.arc.io/address/0xbddde8b247f93748d8ef076848f5fac3238810db |
 
-**Constructor arg:** `acceptedToken = 0x3600000000000000000000000000000000000000` (Arc Testnet USDC)
+**Constructor arg (both):** `acceptedToken = 0x3600000000000000000000000000000000000000` (Arc Testnet USDC)
+
+**V2 new features:** opt-in auto-release, configurable review windows (1h–30d), revision request/resubmit flow, per-milestone acceptance criteria, SHA-256 evidence hash onchain, full submission history via `getSubmissionHistory()`.
 
 ## Tech Stack
 
