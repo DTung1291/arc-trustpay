@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Environment — never commit secrets
+.env
+.env.local
+.env.*.local
+
+# Build output
+dist/
+build/
+
+# Foundry artifacts & cache
+contracts/out/
+contracts/cache/
+contracts/broadcast/
+
+# Circle recovery files
+.circle/
+
+# Logs
+*.log
+console.jsonl
+traces.jsonl
+
+# Editor
+.DS_Store
+.vscode/
