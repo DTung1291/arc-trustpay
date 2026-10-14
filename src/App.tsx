@@ -4,7 +4,7 @@ import { ConnectKitButton } from 'connectkit'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   LayoutDashboard, Plus, Briefcase, Scale, Activity,
-  Shield, ChevronDown, Menu, X, ExternalLink
+  Shield, ChevronDown, Menu, X, ExternalLink, Receipt, BookOpen
 } from 'lucide-react'
 import { LandingPage } from './components/LandingPage'
 import { Dashboard } from './components/Dashboard'
@@ -13,8 +13,10 @@ import { CreateAgreementV2 } from './components/CreateAgreementV2'
 import { AgreementDetail } from './components/AgreementDetail'
 import { AgreementDetailV2 } from './components/AgreementDetailV2'
 import { FreelancerWorkspace } from './components/FreelancerWorkspace'
-import { DisputeCenter } from './components/DisputeCenter'
+import { DisputeCenterV2 } from './components/DisputeCenterV2'
 import { TxExplorer } from './components/TxExplorer'
+import { PaymentReceipts } from './components/PaymentReceipts'
+import { AuditTrail } from './components/AuditTrail'
 import { formatAddress } from './utils/format'
 import { NetworkGuard } from './components/ui/NetworkGuard'
 import { MILESTONE_ESCROW_ADDRESS } from './contract'
@@ -29,6 +31,8 @@ type Screen =
   | { id: 'agreement'; agreementId: bigint; version?: 'v1' | 'v2' }
   | { id: 'workspace' }
   | { id: 'disputes' }
+  | { id: 'receipts' }
+  | { id: 'audit' }
   | { id: 'explorer' }
 
 const NAV_ITEMS = [
@@ -37,6 +41,8 @@ const NAV_ITEMS = [
   { id: 'create', label: 'New (V1)', icon: Plus },
   { id: 'workspace', label: 'Workspace', icon: Briefcase },
   { id: 'disputes', label: 'Disputes', icon: Scale },
+  { id: 'receipts', label: 'Receipts', icon: Receipt },
+  { id: 'audit', label: 'Audit Trail', icon: BookOpen },
   { id: 'explorer', label: 'Explorer', icon: Activity },
 ]
 
@@ -202,8 +208,12 @@ export default function App() {
                 <FreelancerWorkspace onViewAgreement={(id) => setScreen({ id: 'agreement', agreementId: id })} />
               )}
               {screen.id === 'disputes' && (
-                <DisputeCenter onViewAgreement={(id) => setScreen({ id: 'agreement', agreementId: id })} />
+                <DisputeCenterV2
+                  onViewAgreement={(id, version) => setScreen({ id: 'agreement', agreementId: id, version: version ?? 'v1' })}
+                />
               )}
+              {screen.id === 'receipts' && <PaymentReceipts />}
+              {screen.id === 'audit' && <AuditTrail />}
               {screen.id === 'explorer' && <TxExplorer />}
             </NetworkGuard>
           </motion.div>
